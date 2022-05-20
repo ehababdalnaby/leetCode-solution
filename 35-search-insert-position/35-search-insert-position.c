@@ -5,8 +5,6 @@ int searchInsert(int* nums, int numsSize, int target){
     while(start <= end)
     {
         middle = start +(end - start)/2;
-        if(target == nums[middle])
-            return middle;
         if(target > nums[middle])
             start = middle +1;
         else 
