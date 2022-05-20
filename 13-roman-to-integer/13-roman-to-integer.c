@@ -1,38 +1,21 @@
 
 
 int romanToInt(char * s){
-   int length = strlen(s);
-    int index = -1, sum = 0;
-    
-    while(++index < length) {
-        switch(s[index]){
-            case 'I': 
-                if(s[index+1] && (s[index+1] == 'V' || s[index+1] == 'X')) sum -= 1;
-                   else sum += 1;
-                break;
-            case 'X': 
-                if(s[index+1] && (s[index+1] == 'L' || s[index+1] == 'C')) sum-=10;
-                   else sum+=10;
-                break;
-            case 'C':                
-                if(s[index+1] && (s[index+1] == 'D' || s[index+1] == 'M')) sum-=100;
-                   else sum+=100;
-                break;
-            case 'V':
-                sum+=5;
-                break;
-            case 'L':
-                sum+=50;
-                break;
-            case 'D':
-                sum+=500;
-                break;
-            case 'M':
-                sum+=1000;
-                break;
-            default:
-                break;   
-        }
+    int t['X' + 1] = {
+        ['I'] = 1,
+        ['V'] = 5,
+        ['X'] = 10,
+        ['L'] = 50,
+        ['C'] = 100,
+        ['D'] = 500,
+        ['M'] = 1000,
+    };
+    int res = 0;
+    for (int i = 0; s[i]; i++) {
+        if (t[s[i]] < t[s[i+1]])
+            res -= t[s[i]];
+        else
+            res += t[s[i]];
     }
-    return sum;
+    return res;
 }
