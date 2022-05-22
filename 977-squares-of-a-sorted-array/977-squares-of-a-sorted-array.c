@@ -10,9 +10,9 @@ int* sortedSquares(int* nums, int numsSize, int* returnSize){
     int i = numsSize - 1;
     while(start <= end)
     {
-        nums[start]=nums[start] > 0 ?  nums[start] : nums[start] * -1;
-        nums[end]=nums[end] > 0 ?  nums[end] : nums[end] * -1;
-        if(nums[start] > nums[end])
+        //nums[start]=nums[start] > 0 ?  nums[start] : nums[start] * -1;
+        //nums[end]=nums[end] > 0 ?  nums[end] : nums[end] * -1;
+        if(abs(nums[start]) > abs(nums[end]))
         {
             result[i--] = nums[start] * nums[start];
             start++;
