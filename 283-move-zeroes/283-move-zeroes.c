@@ -6,18 +6,14 @@ void moveZeroes(int* nums, int numsSize){
     {
         return;
     }
-   int i;
-int count = 0;
-
-for (i = 0; i < numsSize; i++)
-{
-    if(nums[i] != 0)
+    for(int i = 0; i < numsSize; i++)
     {
-        nums[count++] = nums[i];
+        if(nums[i]!=0)
+        {
+            nums[currentIndex] = nums[i];
+            if(i!=currentIndex)
+            nums[i] = 0;
+            currentIndex++;
+        }
     }
-}
-while (count < numsSize)
-{
-    nums[count++] = 0;
-}
 }
