@@ -4,16 +4,18 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* twoSum(int* numbers, int numbersSize, int target, int* returnSize){
-    int *result = (int *)malloc(2*sizeof(int));
     *returnSize = 2;
+    int *result = (int *)malloc((*returnSize)*sizeof(int));
     int l = 0,r = numbersSize -1;
+    int sum;
     while(l < r)
     {
-         if(numbers[l] + numbers[r] > target)
+        sum = numbers[l] + numbers[r];
+         if(sum > target)
          {
              r--;
          }
-        else if(numbers[l] + numbers[r] < target)
+        else if(sum < target)
          {
              l++;
          }
