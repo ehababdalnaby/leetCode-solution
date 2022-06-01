@@ -1,9 +1,15 @@
 void reverseString(char* s, int start,int end){
-    for(int i=start;i<=(start+end)/2;i++){
-        char temp = s[i];
-        s[i] = s[end-(i-start)];
-        s[end-(i-start)] = temp;
+    
+   while(start <  end)
+    {
+        s[start] = s[start] + s[end];
+        s[end] = s[start] - s[end];
+        s[start] = s[start] - s[end];
+       start++;
+       end--;
+        
     }
+   // printf("%d %d\n",start,end);
 }
 
 char * reverseWords(char * s){
