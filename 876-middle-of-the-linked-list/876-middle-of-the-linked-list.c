@@ -20,7 +20,8 @@ struct ListNode* middleNode(struct ListNode* head){
     {
         fastPointer = fastPointer->next->next;
         slowPointer = slowPointer->next;
-        if(fastPointer == NULL)
+        
+        if(fastPointer == NULL) //this condition for even number of nodes 
             break;
     }
     return slowPointer;
